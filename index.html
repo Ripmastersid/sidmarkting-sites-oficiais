@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Crio sites profissionais para empreendedores, influencers e comerciantes. Preços justos, sem mensalidades.">
+  <meta name="keywords" content="site institucional, landing page, catálogo de serviços, e-commerce jurídico, Sidmarkting">
+  <meta property="og:title" content="SidMarkting | Sites Profissionais para Empreendedores">
+  <meta property="og:description" content="Sites profissionais para empreendedores, influencers e comerciantes. Preços justos, sem mensalidades.">
+  <meta property="og:image" content="https://sidmarkting-site-9jsz.vercel.app/banner-sid.gif">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>SidMarkting | Sites Profissionais para Empreendedores</title>
+  <link rel="icon" href="favicon-mark.png" type="image/png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0A0A0F;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Menu superior */
+    .menu-top {
+      background: linear-gradient(135deg, #0A0A0F, #1A0F3E);
+      padding: 12px 0;
+      text-align: center;
+      color: #FFD60A;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    /* Banner com parallax */
+    .banner {
+      height: 500px;
+      background: linear-gradient(135deg, #0A0A0F, #1A0F3E), url('/banner-sid.gif') center/cover no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 30px 40px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 0 15px rgba(255,255,255,0.15), 0 0 30px rgba(0,200,83,0.1);
+      max-width: 680px;
+      width: 90%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .glass h1 {
+      font-size: 2.6rem;
+      margin: 0 0 12px;
+      font-weight: 800;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .glass p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      font-weight: 500;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section-light {
+      background: #1A0F3E;
+    }
+
+    .section-dark {
+      background: #1e1e1e;
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #ddd;
+    }
+
+    /* Planos */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto 40px;
+    }
+
+    .plan-card {
+      max-width: 320px;
+      background: rgba(40,40,40,0.6);
+      border: 2px solid #FFD60A;
+      border-radius: 12px;
+      padding: 28px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      animation: glow 3s infinite;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px rgba(255,214,10,0.2); }
+      50% { box-shadow: 0 0 20px rgba(255,214,10,0.5); }
+      100% { box-shadow: 0 0 10px rgba(255,214,10,0.2); }
+    }
+
+    .plan-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(255,214,10,0.5);
+    }
+
+    .plan-card.selected {
+      border-color: #FFD60A;
+      background: rgba(255, 214, 10, 0.15);
+      box-shadow: 0 0 30px rgba(255, 214, 10, 0.4);
+      transform: scale(1.05);
+    }
+
+    .plan-title {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #00C853;
+    }
+
+    .plan-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #FFD60A;
+    }
+
+    .plan-feature {
+      text-align: left;
+      padding: 8px 0;
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+
+    .form {
+      max-width: 450px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    input, select {
+      padding: 14px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: #2a2a2a;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input::placeholder, select::placeholder {
+      color: #aaa;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 14px;
+      background: #00C853;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background: #00a843;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #0A0A0F;
+      color: #aaa;
+      font-size: 0.95rem;
+      border-top: 1px solid #333;
+    }
+
+    .social a {
+      color: #00C853;
+      text-decoration: none;
+      margin: 0 14px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .banner { height: 400px; }
+      .glass { padding: 22px 28px; }
+      .glass h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.9rem; }
+      .plans-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu superior -->
+  <header class="menu-top">
+    <div class="container">
+      <h1>CONSTRUO SEU SITE</h1>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="glass">
+      <h1>SIDMARKTING SITES</h1>
+      <p>Para empreendedores, influencers e comerciantes de todo nicho</p>
+    </div>
+  </div>
+
+  <!-- Seção: Estratégia -->
+  <section class="section-light">
+    <h2>Não é milagre. É estratégia.</h2>
+    <p>
+      Site bom não nasce do nada. Nasce de uma estrutura clara, design funcional e foco no cliente.
+      Você traz seu negócio. Eu crio o site. Resultado vem com consistência — e quando vem, é escalável.
+    </p>
+  </section>
+
+  <!-- Seção: Planos -->
+  <section class="section-dark">
+    <h2>Escolha seu tipo de site</h2>
+    <p>Preços justos, pagamento único, sem mensalidades abusivas.</p>
+    
+    <div class="plans-grid">
+      <div class="plan-card" onclick="selectPlan('Landing Page Simples', 497)">
+        <div class="plan-title">Landing Page Simples</div>
+        <div class="plan-price">R$ 497</div>
+        <div class="plan-feature">✓ 1 página focada em conversão</div>
+        <div class="plan-feature">✓ Formulário + WhatsApp</div>
+        <div class="plan-feature">✓ Hospedagem Vercel</div>
+        <div class="plan-feature">✓ Prazo: 3 dias</div>
+      </div>
+
+      <div class="plan-card" onclick="selectPlan('Site Institucional', 897)">
+        <div class="plan-title">Site Institucional</div>
+        <div class="plan-price">R$ 897</div>
+        <div class="plan-feature">✓ Home, Sobre, Serviços, Contato</div>
+        <div class="plan-feature">✓ Blog simples (3 artigos)</div>
+        <div class="plan-feature">✓ SEO básico</div>
+        <div class="plan-feature">✓ Prazo: 7 dias</div>
+      </div>
+
+      <div class="plan-card" onclick="selectPlan('Catálogo de Serviços', 697)">
+        <div class="plan-title">Catálogo de Serviços</div>
+        <div class="plan-price">R$ 697</div>
+        <div class="plan-feature">✓ Galeria de trabalhos</div>
+        <div class="plan-feature">✓ Depoimentos</div>
+        <div class="plan-feature">✓ Links para redes sociais</div>
+        <div class="plan-feature">✓ Prazo: 5 dias</div>
+      </div>
+
+      <div class="plan-card" onclick="selectPlan('E-commerce Jurídico', 1497)">
+        <div class="plan-title">E-commerce Jurídico</div>
+        <div class="plan-price">R$ 1.497</div>
+        <div class="plan-feature">✓ Área de pedidos</div>
+        <div class="plan-feature">✓ Integração WhatsApp</div>
+        <div class="plan-feature">✓ Pagamentos via PIX</div>
+        <div class="plan-feature">✓ Prazo: 14 dias</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulário -->
+  <section id="form-section" class="section-dark">
+    <h2>Preencha seus dados</h2>
+    <p>Após enviar, você será redirecionado para o WhatsApp com orçamento pré-definido.</p>
+    
+    <form id="contactForm" action="https://formspree.io/f/mgoqrpgg" method="POST">
+      <input type="hidden" name="tipo_site" id="tipo_site">
+      <input type="hidden" name="preco" id="preco">
+      
+      <div class="form">
+        <input type="text" name="nome" placeholder="Seu nome completo" required>
+        <input type="tel" name="whatsapp" placeholder="(21) 99999-9999" required>
+        <input type="email" name="email" placeholder="E-mail (opcional)">
+        
+        <button type="submit">
+          Enviar para WhatsApp
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2026 SidMarkting. Todos os direitos reservados.</p>
+    <p>Site criado com <span style="color:#00C853">HTML/CSS/JS puro</span> + Vercel</p>
+    <div class="social">
+      <a href="https://www.instagram.com/syd.shapper/" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/share/18NkFpNCgD/" target="_blank">Facebook</a>
+      <a href="https://wa.me/5521966053200" target="_blank">WhatsApp</a>
+    </div>
+  </footer>
+
+  <!-- Meta Pixel (ativar no Facebook Ads) -->
+  <!-- <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
+  </script> -->
+
+  <script>
+    let selectedPlan = null;
+    let selectedPrice = null;
+
+    function selectPlan(plan, price) {
+      // Remove seleção anterior
+      document.querySelectorAll('.plan-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      
+      // Adiciona seleção ao clicado
+      event.currentTarget.classList.add('selected');
+      
+      // Armazena valores
+      selectedPlan = plan;
+      selectedPrice = price;
+      
+      // Atualiza campos ocultos
+      document.getElementById('tipo_site').value = plan;
+      document.getElementById('preco').value = `R$ ${price}`;
+      
+      // Auto-scroll para o formulário
+      document.getElementById('form-section').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      if (!selectedPlan) {
+        e.preventDefault();
+        alert('Por favor, escolha um tipo de site primeiro.');
+        return;
+      }
+      
+      // Monta mensagem do WhatsApp
+      const formData = new FormData(this);
+      const nome = formData.get('nome');
+      const whatsapp = formData.get('whatsapp');
+      const email = formData.get('email') || 'Não informado';
+      
+      const message = `Olá Sidnei! Quero orçar uma **${selectedPlan} (R$ ${selectedPrice})**.\n\nMeus dados:\n👤 Nome: ${nome}\n📱 WhatsApp: ${whatsapp}\n📧 E-mail: ${email}\n\nEnviado via seu site institucional.`;
+      
+      // Redireciona para WhatsApp com mensagem codificada
+      window.open(`https://wa.me/5521966053200?text=${encodeURIComponent(message)}`, '_blank');
+    });
+  </script>
+</body>
+          </html>
